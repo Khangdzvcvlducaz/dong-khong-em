@@ -1,1 +1,366 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đông không em? — Coffee & Singing</title>
+<meta name="description" content="Sữa đậu nành nóng & cà phê giữa mùa đông. Coffee & Singing — nơi ấm áp nhất mùa đông này.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red-950:#2e0808; --red-900:#4a0d0d; --red-700:#7a1616; --red-600:#a02323;
+  --gold:#c9963f; --gold-light:#e8c87a;
+  --cream:#fff9f0; --cream-2:#f7ecdb;
+  --ink:#3a241c;
+  --nav-h:84px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h)}
+body{font-family:'Be Vietnam Pro',sans-serif;color:var(--ink);background:var(--cream);line-height:1.7;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
 
+/* ---------- NAV ---------- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;height:var(--nav-h);display:flex;align-items:center;transition:background .3s,box-shadow .3s}
+.nav.scrolled{background:rgba(255,249,240,.92);backdrop-filter:blur(10px);box-shadow:0 4px 24px rgba(74,13,13,.12)}
+.nav .wrap{width:100%;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Playfair Display',serif;font-weight:800;font-size:1.35rem;color:var(--red-700);letter-spacing:.01em}
+.logo em{color:var(--gold);font-style:normal}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{font-weight:600;font-size:.92rem;letter-spacing:.04em;text-transform:uppercase;color:var(--red-700);position:relative;padding:6px 0}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--gold);transition:width .25s}
+.nav-links a:hover::after{width:100%}
+.nav-burger{display:none;background:none;border:0;cursor:pointer;padding:8px}
+.nav-burger span{display:block;width:26px;height:3px;background:var(--red-700);margin:5px 0;border-radius:2px;transition:.3s}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;isolation:isolate}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-2;background:var(--cream-2)}
+.hero::after{content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(46,8,8,.28) 0%,rgba(46,8,8,0) 26%),
+             linear-gradient(0deg,var(--cream) 0%,rgba(255,249,240,0) 18%)}
+.hero-panel{transform:translateY(-16vh);max-width:660px;background:rgba(255,249,240,.62);
+  backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);
+  border:1px solid rgba(201,150,63,.4);border-radius:30px;
+  padding:2.6rem 3rem 2.8rem;box-shadow:0 24px 70px rgba(74,13,13,.2)}
+.hero .kicker{font-weight:700;letter-spacing:.32em;font-size:.8rem;color:var(--gold);text-transform:uppercase}
+.hero h1{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(2.6rem,6.5vw,4.4rem);
+  line-height:1.12;color:var(--red-700);margin:.5rem 0 .9rem}
+.hero h1 em{color:var(--gold);font-style:italic}
+.hero p{font-size:1.05rem;color:#5a3a2c;max-width:46ch;margin:0 auto 1.8rem}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--red-600),var(--red-700));color:var(--cream);
+  border-radius:999px;padding:.95rem 2.6rem;font-weight:700;font-size:1rem;letter-spacing:.03em;
+  box-shadow:0 12px 28px rgba(122,22,22,.4);transition:.25s;border:0;cursor:pointer}
+.btn:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(122,22,22,.5)}
+.hero-scroll{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+  color:var(--red-700);font-size:.78rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;opacity:.75;animation:bob 2s ease-in-out infinite}
+@keyframes bob{50%{transform:translate(-50%,7px)}}
+
+/* ---------- SECTION chung ---------- */
+section{padding:6.5rem 0}
+.kicker{font-weight:700;letter-spacing:.3em;font-size:.8rem;color:var(--gold);text-transform:uppercase}
+h2{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(1.9rem,4vw,2.8rem);color:var(--red-900);margin:.4rem 0 1rem;line-height:1.2}
+.sub{max-width:56ch;color:#6b4a38}
+.sec-head{text-align:center;margin-bottom:3.2rem}
+.sec-head .sub{margin:0 auto}
+
+/* ---------- MENU ---------- */
+#menu{background:var(--cream)}
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.4rem 4.5rem}
+.menu-item{padding:1.1rem 0;border-bottom:1px dashed rgba(122,22,22,.18)}
+.menu-row{display:flex;align-items:baseline;gap:12px}
+.menu-row h3{font-size:1.12rem;font-weight:700;color:var(--red-900)}
+.badge{font-size:.66rem;font-weight:800;letter-spacing:.12em;color:var(--cream);background:var(--gold);
+  border-radius:999px;padding:3px 10px;transform:translateY(-2px);white-space:nowrap}
+.dots{flex:1;border-bottom:2px dotted rgba(122,22,22,.3);transform:translateY(-4px)}
+.price{font-family:'Playfair Display',serif;font-weight:700;font-size:1.15rem;color:var(--red-600)}
+.menu-item p{font-size:.9rem;color:#8a6a58;margin-top:.15rem}
+.menu-note{text-align:center;margin-top:2.8rem;font-size:.92rem;color:#8a6a58}
+.menu-note b{color:var(--red-700)}
+
+/* ---------- VỀ CHÚNG TÔI ---------- */
+#ve-chung-toi{background:linear-gradient(180deg,var(--cream) 0%,var(--cream-2) 100%)}
+.about-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:4rem;align-items:center}
+.about-img{border-radius:26px;overflow:hidden;box-shadow:0 30px 70px rgba(74,13,13,.28);
+  border:6px solid #fff;transform:rotate(-1.5deg);transition:.35s;background:var(--red-700)}
+.about-img:hover{transform:rotate(0) scale(1.015)}
+.about-text p{margin-bottom:1.1rem;color:#5a3a2c}
+.stats{display:flex;gap:2.6rem;margin-top:2.2rem;flex-wrap:wrap}
+.stat b{display:block;font-family:'Playfair Display',serif;font-size:2rem;color:var(--red-600);line-height:1}
+.stat span{font-size:.85rem;font-weight:600;letter-spacing:.06em;color:#8a6a58;text-transform:uppercase}
+
+/* ---------- KHÁCH HÀNG ---------- */
+#khach-hang{background:linear-gradient(160deg,var(--red-900),var(--red-950));position:relative;overflow:hidden}
+#khach-hang .kicker{color:var(--gold-light)}
+#khach-hang h2{color:var(--cream)}
+#khach-hang .sub{color:rgba(255,249,240,.75);margin:0 auto}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;margin-top:3.4rem;position:relative;z-index:1}
+.quote{background:rgba(255,249,240,.07);border:1px solid rgba(232,200,122,.28);border-radius:22px;
+  padding:2rem 1.8rem;transition:.3s;backdrop-filter:blur(4px)}
+.quote:hover{transform:translateY(-6px);background:rgba(255,249,240,.11)}
+.quote .mark{font-family:'Playfair Display',serif;font-size:3rem;line-height:1;color:var(--gold-light);display:block;margin-bottom:.4rem}
+.quote p{color:rgba(255,249,240,.92);font-size:.98rem;margin-bottom:1.2rem}
+.quote footer b{color:var(--gold-light);font-weight:700}
+.quote footer span{display:block;font-size:.82rem;color:rgba(255,249,240,.55)}
+/* tuyết rơi nhẹ */
+.snow{position:absolute;inset:0;pointer-events:none;z-index:0}
+.snow i{position:absolute;top:-6%;font-style:normal;color:rgba(255,249,240,.4);animation:fall linear infinite}
+@keyframes fall{to{transform:translateY(115vh) rotate(300deg)}}
+
+/* ---------- ĐỊA CHỈ ---------- */
+#dia-chi{background:var(--cream)}
+.addr-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:3.5rem;align-items:stretch}
+.addr-list{list-style:none;display:grid;gap:1.5rem;align-content:center}
+.addr-list li{display:flex;gap:1.1rem;align-items:flex-start}
+.addr-list .ic{flex:0 0 46px;height:46px;border-radius:14px;background:rgba(160,35,35,.09);
+  display:grid;place-items:center;font-size:1.25rem}
+.addr-list b{display:block;color:var(--red-900);font-size:1.02rem}
+.addr-list span{color:#6b4a38;font-size:.95rem}
+.map-ph{border-radius:24px;background:repeating-linear-gradient(45deg,var(--cream-2) 0 14px,#f3e5cf 14px 28px);
+  border:2px dashed rgba(201,150,63,.5);display:grid;place-items:center;text-align:center;
+  min-height:320px;padding:2rem}
+.map-ph b{font-family:'Playfair Display',serif;color:var(--red-700);font-size:1.2rem;display:block;margin-bottom:.3rem}
+.map-ph span{color:#8a6a58;font-size:.9rem;max-width:32ch;display:block}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--red-950);color:rgba(255,249,240,.8);padding:3.2rem 0 2rem}
+.foot-grid{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;align-items:center}
+footer .logo{color:var(--cream)}
+.foot-links{display:flex;gap:1.8rem;list-style:none;flex-wrap:wrap}
+.foot-links a{font-size:.9rem;transition:.2s}
+.foot-links a:hover{color:var(--gold-light)}
+.copy{text-align:center;margin-top:2.2rem;padding-top:1.6rem;border-top:1px solid rgba(255,249,240,.12);
+  font-size:.85rem;color:rgba(255,249,240,.5)}
+
+/* ---------- REVEAL ---------- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:900px){
+  .menu-grid,.quotes{grid-template-columns:1fr}
+  .about-grid,.addr-grid{grid-template-columns:1fr;gap:2.6rem}
+  .about-img{transform:none;max-width:520px}
+  .hero-panel{transform:translateY(-9vh);padding:2rem 1.6rem;margin:0 16px}
+  section{padding:4.8rem 0}
+  .nav-burger{display:block}
+  .nav-links{position:absolute;top:var(--nav-h);left:16px;right:16px;flex-direction:column;gap:0;
+    background:rgba(255,249,240,.97);border-radius:18px;box-shadow:0 18px 50px rgba(74,13,13,.25);
+    padding:.6rem 0;opacity:0;visibility:hidden;transform:translateY(-10px);transition:.3s}
+  .nav.open .nav-links{opacity:1;visibility:visible;transform:none}
+  .nav-links a{display:block;padding:.85rem 1.6rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#trang-chu">Đông không em<em>?</em></a>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#trang-chu">Trang chủ</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#ve-chung-toi">Về chúng tôi</a></li>
+        <li><a href="#khach-hang">Khách hàng</a></li>
+        <li><a href="#dia-chi">Địa chỉ</a></li>
+      </ul>
+    </nav>
+    <button class="nav-burger" id="burger" aria-label="Mở menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="trang-chu">
+  <video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="cup-hero.jpg">
+    <source src="hero-video.mp4" type="video/mp4">
+  </video>
+  <div class="hero-panel reveal in">
+    <div class="kicker">☕ Coffee &amp; Singing</div>
+    <h1>Đông không <em>em?</em></h1>
+    <p>Ly sữa đậu nành nóng giữa mùa đông — nơi cà phê gặp giai điệu,
+       nơi ấm áp nhất là khi mình đông đủ bên nhau.</p>
+    <a class="btn" href="#menu">Khám phá ngay</a>
+  </div>
+  <div class="hero-scroll">Cuộn xuống ↓</div>
+</section>
+
+<main>
+<!-- MENU -->
+<section id="menu">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Menu</div>
+      <h2>Thức uống mùa đông</h2>
+      <p class="sub">Đậu nành tuyển chọn, xay mịn mỗi sáng — ngọt dịu tự nhiên, không phụ gia.</p>
+    </div>
+    <div class="menu-grid reveal">
+      <div class="menu-item">
+        <div class="menu-row"><h3>Sữa đậu nành nóng</h3><span class="badge">Signature</span><span class="dots"></span><span class="price">35.000₫</span></div>
+        <p>Hơi sữa nghi ngút, đậm vị đậu rang — món đã làm nên cái tên "Đông không em?".</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-row"><h3>Sữa đậu nành cà phê</h3><span class="dots"></span><span class="price">40.000₫</span></div>
+        <p>Khi sữa đậu nành gặp espresso — hai thế giới, một ly.</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-row"><h3>Sữa đậu nành trà xanh</h3><span class="dots"></span><span class="price">45.000₫</span></div>
+        <p>Matcha Nhật thơm nhẹ, hòa quyện cùng sữa đậu nành mịn.</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-row"><h3>Sữa đậu nành đá</h3><span class="dots"></span><span class="price">35.000₫</span></div>
+        <p>Mát lạnh, mượt mà — cho những ngày Sài Gòn chưa chịu đông.</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-row"><h3>Bạc xỉu</h3><span class="dots"></span><span class="price">40.000₫</span></div>
+        <p>Ngọt ngào đúng điệu với sữa đặc và chút cà phê Robusta.</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-row"><h3>Cà phê sữa truyền thống</h3><span class="dots"></span><span class="price">35.000₫</span></div>
+        <p>Pha phin chậm rãi — đúng chất quán xưa, đúng chất Sài Gòn.</p>
+      </div>
+    </div>
+    <p class="menu-note reveal">Topping: <b>trân châu đường đen</b> · <b>hạt chia</b> — +5.000₫ &nbsp;|&nbsp; 🎶 Tối thứ 7: Acoustic night miễn phí</p>
+  </div>
+</section>
+
+<!-- VỀ CHÚNG TÔI -->
+<section id="ve-chung-toi">
+  <div class="wrap about-grid">
+    <div class="about-img reveal">
+      <img src="cup-hero.jpg" alt="Ly sữa đậu nành Đông không em? — Coffee & Singing" loading="lazy">
+    </div>
+    <div class="about-text reveal">
+      <div class="kicker">Về chúng tôi</div>
+      <h2>Câu chuyện từ<br>một quán nhỏ</h2>
+      <p>"Đông không em?" sinh ra từ một câu hỏi tối thứ bảy: <em>đông đủ thế, còn thiếu gì không?</em>
+         Chúng tôi mở quán để trả lời — bằng sữa đậu nành nóng, tiếng đàn và những buổi hát khuya.</p>
+      <p>Sáu năm qua, mỗi mùa đông quán lại đỏ hơn một chút, ấm hơn một chút.
+         Người đến vì một ly sữa, ở lại vì những bài hát — và quay lại vì cảm giác như về nhà.</p>
+      <div class="stats">
+        <div class="stat"><b>2019</b><span>Năm thành lập</span></div>
+        <div class="stat"><b>50.000+</b><span>Ly mỗi mùa đông</span></div>
+        <div class="stat"><b>365</b><span>Đêm có nhạc</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KHÁCH HÀNG -->
+<section id="khach-hang">
+  <div class="snow" aria-hidden="true">
+    <i style="left:8%;font-size:16px;animation-duration:11s">❄</i>
+    <i style="left:24%;font-size:11px;animation-duration:15s;animation-delay:2s">❄</i>
+    <i style="left:41%;font-size:14px;animation-duration:13s;animation-delay:5s">❄</i>
+    <i style="left:58%;font-size:18px;animation-duration:16s;animation-delay:1s">❄</i>
+    <i style="left:74%;font-size:12px;animation-duration:12s;animation-delay:4s">❄</i>
+    <i style="left:90%;font-size:15px;animation-duration:14s;animation-delay:7s">❄</i>
+  </div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Khách hàng</div>
+      <h2>Họ đã trả lời câu hỏi rồi</h2>
+      <p class="sub">"Đông không em?" — nghe câu trả lời từ những người đã ghé quán.</p>
+    </div>
+    <div class="quotes">
+      <figure class="quote reveal">
+        <span class="mark">"</span>
+        <blockquote>Ly sữa đậu nành nóng ở đây đúng chất "đông không em" — ấm từ ngón tay rung đến tận lòng.</blockquote>
+        <footer><b>Minh Anh</b><span>Sinh viên</span></footer>
+      </figure>
+      <figure class="quote reveal">
+        <span class="mark">"</span>
+        <blockquote>Đi hát về ghé đây, ngồi luôn tới khuya. Nhạc chill, chỗ ngồi ấm, chưa bao giờ muốn về sớm.</blockquote>
+        <footer><b>Quốc Bảo</b><span>Khách quen 3 năm</span></footer>
+      </figure>
+      <figure class="quote reveal">
+        <span class="mark">"</span>
+        <blockquote>Mỗi độ đông về lại nhớ mùi sữa đậu nành rang của quán. Uống một ly giống như về nhà.</blockquote>
+        <footer><b>Thu Hà</b><span>Nhân viên văn phòng</span></footer>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ĐỊA CHỈ -->
+<section id="dia-chi">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Địa chỉ</div>
+      <h2>Ghé quán nhé?</h2>
+    </div>
+    <div class="addr-grid">
+      <ul class="addr-list reveal">
+        <li>
+          <span class="ic">📍</span>
+          <div><b>Đông không em? — Coffee &amp; Singing</b>
+          <span>42 Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</span></div>
+        </li>
+        <li>
+          <span class="ic">🕐</span>
+          <div><b>Giờ mở cửa</b>
+          <span>07:00 – 23:00 · Thứ 2 đến Chủ nhật</span></div>
+        </li>
+        <li>
+          <span class="ic">📞</span>
+          <div><b>Hotline / Zalo</b>
+          <span>0900 000 000</span></div>
+        </li>
+        <li>
+          <span class="ic">🎶</span>
+          <div><b>Fanpage &amp; mạng xã hội</b>
+          <span>facebook.com/dongkhongem · @dongkhongem</span></div>
+        </li>
+      </ul>
+      <div class="map-ph reveal">
+        <div>
+          <b>🗺️ Bản đồ</b>
+          <span>Google Maps sẽ được nhúng tại đây ngay khi chốt địa chỉ chính thức.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot-grid">
+    <a class="logo" href="#trang-chu">Đông không em<em>?</em></a>
+    <ul class="foot-links">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#ve-chung-toi">Về chúng tôi</a></li>
+      <li><a href="#khach-hang">Khách hàng</a></li>
+      <li><a href="#dia-chi">Địa chỉ</a></li>
+    </ul>
+  </div>
+  <div class="copy">© 2025 Đông không em? — Coffee &amp; Singing · Làm với ☕ &amp; 🎶</div>
+</footer>
+
+<script>
+// Nav đổi nền khi cuộn
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+
+// Menu mobile
+const burger=document.getElementById('burger');
+burger.addEventListener('click',()=>nav.classList.toggle('open'));
+document.querySelectorAll('#navLinks a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+
+// Hiệu ứng xuất hiện khi cuộn tới
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
+}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// Tạm dừng video khi rời khỏi màn hình (tiết kiệm pin/độ trễ)
+const v=document.getElementById('heroVideo');
+new IntersectionObserver(([e])=>{e.isIntersecting?v.play().catch(()=>{}):v.pause()},{threshold:0}).observe(v);
+</script>
+</body>
+</html>
